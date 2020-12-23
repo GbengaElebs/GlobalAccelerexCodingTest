@@ -1,0 +1,46 @@
+[
+	{
+		"EpisodeId" : 1,
+		"CharacterId" : 1
+	},
+	{
+		"EpisodeId" : 1,
+		"CharacterId" : 2
+	},
+	{
+		"EpisodeId" : 2,
+		"CharacterId" : 4
+	},
+	{
+		"EpisodeId" : 3,
+		"CharacterId" : 5
+	},
+	{
+		"EpisodeId" : 4,
+		"CharacterId" : 1
+	},
+	{
+		"EpisodeId" : 4,
+		"CharacterId" : 3
+	},
+	{
+		"EpisodeId" : 4,
+		"CharacterId" : 2
+	},
+	{
+		"EpisodeId" : 5,
+		"CharacterId" : 6
+	},
+	{
+		"EpisodeId" : 6,
+		"CharacterId" : 7
+	},
+	{
+		"EpisodeId" : 7,
+		"CharacterId" : 8
+	},
+	{
+		"EpisodeId" : 8,
+		"CharacterId" : 9
+	}
+]

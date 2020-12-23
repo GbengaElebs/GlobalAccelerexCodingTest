@@ -1,0 +1,32 @@
+[
+	{
+		"Name" : "Lagos",
+		"Latitude" : 6.4654,
+		"Longitude" : 3.4060,
+		"Created" : "2020-12-18 10:34:09"
+	},
+	{
+		"Name" : "Kaduna",
+		"Latitude" : 10.6093,
+		"Longitude" : 7.4295,
+		"Created" : "2020-12-19 14:35:09"
+	},
+	{
+		"Name" : "Abuja",
+		"Latitude" : 9.0722,
+		"Longitude" : 7.4913,
+		"Created" : "2020-12-19 15:36:04"
+	},
+	{
+		"Name" : "Oyo",
+		"Latitude" : 7.8525,
+		"Longitude" : 3.9312,
+		"Created" : "2020-12-20 19:36:04"
+	},
+	{
+		"Name" : "Kogi",
+		"Latitude" : 7.7337,
+		"Longitude" : 6.6906,
+		"Created" : "2020-12-21 23:39:04"
+	}
+]
