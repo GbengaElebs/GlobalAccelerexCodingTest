@@ -29,13 +29,13 @@ namespace CodingTest.Api
             services.AddControllers();
             var host = Configuration["DBHOST"]?? "localhost";
             var port = Configuration["DBPORT"]?? "3306";
-            var password = Configuration["DBPASSWORD"]?? "global@accelerex";
-            
+            var password = Configuration["MYSQL_PASSWORD"]?? Configuration.GetConnectionString("MYSQL_PASSWORD");
+            var userid = Configuration["MYSQL_USER"]?? Configuration.GetConnectionString("MYSQL_USER");
 
             services.AddDbContext<GlobalAccelerexDataContext>(opt =>
             {
                 opt.UseLazyLoadingProxies();
-                opt.UseMySQL($"server={host}; userid=root;pwd={password};port={port};database=GlobalAccelerexdb");
+                opt.UseMySQL($"server={host}; userid={userid};pwd={password};port={port};database=GlobalAccelerexdb");
             });
             services.AddScoped<ITask, Task>();
             services.AddScoped<IDbInterfacing, DbInterfacing>();

@@ -13,6 +13,8 @@ services:
     restart: always
     environment: 
       - MYSQL_ROOT_PASSWORD=global@accelerex
+      - MYSQL_USER=global@accelerex
+      - MYSQL_PASSWORD=global@accelerex
   api:
     build:
       context: .

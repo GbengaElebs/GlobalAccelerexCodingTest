@@ -6,6 +6,7 @@ namespace Application.DataTransferObjects
     {
         public string Name { get; set; }
         public int CommentCount { get; set; }
+
     }
     public class EpisodeDb
     {
