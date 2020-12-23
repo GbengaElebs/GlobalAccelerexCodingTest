@@ -2,14 +2,12 @@ using System;
 using System.Threading.Tasks;
 using Application.DataTransferObjects;
 using DataAccessor;
-using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using Application.Errors;
 using System.Net;
 using Microsoft.Extensions.Logging;
 using Application.RequestDto;
 using DataAccessor.GlobalAccelerex;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Application
 {
@@ -18,12 +16,12 @@ namespace Application
         private GlobalAccelerexDataContext _context;
         private ITaskRepository _repo;
         private IAppUtilites _util;
-        private ILogger _logger;
+         private ILogger<Task> _logger;
         public Task(GlobalAccelerexDataContext context, IDbInterfacing db, 
-        ITaskRepository repo, IAppUtilites util,ILogger logger = null)
+        ITaskRepository repo, IAppUtilites util,ILogger<Task> logger )
         {
             _context = context;
-            _logger = logger ?? NullLogger.Instance;;
+            _logger = logger;;
             _util = util;
             _repo = repo;
         }
