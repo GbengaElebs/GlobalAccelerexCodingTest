@@ -13,11 +13,26 @@ namespace CodingTest.Api
     {
         public static void Main(string[] args)
         {     
-            var logger = NLogBuilder.ConfigureNLog("Nlog.config").GetCurrentClassLogger();       
+            var logger = NLogBuilder.ConfigureNLog("Nlog.config").GetCurrentClassLogger();
             try
             {
                 logger.Debug("init main function");
-                
+                var host = CreateHostBuilder(args).Build();
+                using (var scope = host.Services.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    try
+                    {
+                        var context = services.GetRequiredService<GlobalAccelerexDataContext>();
+                        context.Database.EnsureCreated();
+                        Seed.SeedData(context);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, "An Error Occured during Migration");
+                    }
+                }
+                host.Run();
             }
             catch (Exception ex)
             {
@@ -28,6 +43,7 @@ namespace CodingTest.Api
             {
                 NLog.LogManager.Shutdown();
             }
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
