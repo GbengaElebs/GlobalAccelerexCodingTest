@@ -12,6 +12,7 @@ namespace Application
          Task<List<CharacterDto>> GetCharacters(UrlQuery urlQuery);
          Task<List<EpisodeDtoFull>> GetListOfEpisodesByCharacter(int charId);
          Task<List<EpisodeDtoFull>> GetListOfEpisodesByCharacterName(string charName);
-         Task<CommentDtoFull> AddComments(AddCommentRequest request);     
+         Task<CommentDtoFull> AddComments(AddCommentRequest request, string IpAddressLocation);     
+         Task<CommentDtoFull> GetCommentById(int commentId);
     }
 }

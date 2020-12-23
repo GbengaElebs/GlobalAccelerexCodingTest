@@ -75,7 +75,10 @@ namespace DataAccessor
                 {
 
                     var result = await connection.ExecuteAsync(commandName, param, null, null, commandType);
-                    res.Success = true;
+                    if (result > 0)
+                    {
+                        res.Success = true;
+                    }
                     res.ResultInt = result;
                 }
             }

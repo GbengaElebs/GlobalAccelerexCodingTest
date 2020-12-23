@@ -42,14 +42,14 @@ namespace Application
             var result = await _db.GetList<EpisodeDtoFull>(connString, query, CommandType.Text, parameters);
             return result;
         }
-        public async Task<SqlModelRes<int>> InsertCommentData(AddCommentRequest request)
+        public async Task<SqlModelRes<int>> InsertCommentData(AddCommentRequest request, string IpAddressLocation)
         {
             string insertQuery = @"INSERT INTO CommentsData (Comment,IpAddressLocation,Created,EpisodeId) 
                                 VALUES (@Comment,@IpAddressLocation,@Created,@EpisodeId)";
 
             var parameters = new DynamicParameters();
             parameters.Add("@Comment", request.Comment);
-            parameters.Add("@IpAddressLocation", request.IpAddressLocation);
+            parameters.Add("@IpAddressLocation", IpAddressLocation);
             parameters.Add("@EpisodeId", request.EpisodeId);
             parameters.Add("@Created", DateTime.Now);
             var result = await _db.ModifyDB(connString, insertQuery, CommandType.Text, parameters);
@@ -104,6 +104,14 @@ namespace Application
             string query = @"SELECT * FROM CommentsData WHERE EpisodeId=@episodeId ORDER BY CommentId DESC LIMIT 1";
             var param = new DynamicParameters();
             param.Add("@episodeId", episodeId);
+            var result = await _db.GetOneItem<CommentDtoFull>(connString, query, CommandType.Text, param);
+            return result;
+        }
+        public async Task<SqlModelRes<CommentDtoFull>> GetCommentById(int commentId)
+        {
+            string query = @"SELECT * FROM CommentsData WHERE CommentId=@CommentId";
+            var param = new DynamicParameters();
+            param.Add("@CommentId", commentId);
             var result = await _db.GetOneItem<CommentDtoFull>(connString, query, CommandType.Text, param);
             return result;
         }

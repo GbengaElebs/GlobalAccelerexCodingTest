@@ -41,6 +41,7 @@ namespace CodingTest.Api.Controllers
             var result = await _task.GetAllComments();
             return Ok(result);
         }
+        
         ///<Summary>
         /// This Endpoint is to GetCharacters Can Be Filtered or Sorted Based on the Query String Param
         ///</Summary>
@@ -72,10 +73,17 @@ namespace CodingTest.Api.Controllers
         /// This Endpoint is to AddComments
         ///</Summary>
         [HttpPost("AddComments")]
-        public async Task<ActionResult<CommentDtoFull>> AddComments(AddCommentRequest request)
+        public async Task<ActionResult> AddComments([FromBody] AddCommentRequest request)
         {
-            request.IpAddressLocation = _util.GetUserIP();
-            var result = await _task.AddComments(request);
+            string IpAddressLocation = _util.GetUserIP();
+            var result = await _task.AddComments(request, IpAddressLocation);
+            return CreatedAtRoute("GetComment", new {controller ="Task", commentId= result.CommentId}, result);
+        }
+
+        [HttpGet("GetComment/{commentId}", Name = "GetComment")]
+        public async Task<ActionResult<CommentDtoFull>> GetComment(int commentId)
+        {
+            var result = await _task.GetCommentById(commentId);
             return Ok(result);
         }
     }

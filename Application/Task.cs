@@ -32,9 +32,9 @@ namespace Application
             var result = await _repo.GetAllEpisodesSorted();
             if (!result.Success || result.ResultList.Count <= 0)
             {
-                _logger.LogInformation("Error Getting Episodes");
+                _logger.LogInformation("Episodes Not Found");
                 throw new RestException(HttpStatusCode.NotFound,
-                new { ErrorDescription = "Episodes Could Not Be Retrieved" });
+                new { ErrorDescription = "Episodes Not Found" });
             }
             _logger.LogInformation("Episodes SuccessFully Gotten");
             return result.ResultList;
@@ -49,7 +49,7 @@ namespace Application
             {
                 _logger.LogInformation("GetAllComments Failed");
                 throw new RestException(HttpStatusCode.NotFound,
-                new { ErrorDescription = "Comments Could Not Be Retrieved" });
+                new { ErrorDescription = "No Comment Found" });
             }
             _logger.LogInformation("GetAllComments SuccessFul");
             return result.ResultList;
@@ -94,7 +94,7 @@ namespace Application
             {
                 _logger.LogInformation("GetListOfEpisodesByCharacter Failed");
                 throw new RestException(HttpStatusCode.NotFound,
-                new { ErrorDescription = "Episodes Could Not Be Retrieved" });
+                new { ErrorDescription = "Episodes  Not Found For Character" });
             }
             _logger.LogInformation("GetListOfEpisodesByCharacter SuccessFul");
             return result.ResultList;
@@ -125,7 +125,7 @@ namespace Application
             throw new Exception("Problem GetListOfEpisodesByCharacterName");
         }
 
-        public async Task<CommentDtoFull> AddComments(AddCommentRequest request)
+        public async Task<CommentDtoFull> AddComments(AddCommentRequest request, string IpAddressLocation)
         {
             // validate Episode Id
             var queryResult = await _repo.ValidateEpisodeId(request);
@@ -133,9 +133,9 @@ namespace Application
             {
                 _logger.LogInformation("Episode Not Found");
                 throw new RestException(HttpStatusCode.NotFound,
-                new { ErrorDescription = "Please Input a Valid Episode Id" });
+                new { ErrorDescription = "Episode Not Found" });
             }
-            var result = await _repo.InsertCommentData(request);
+            var result = await _repo.InsertCommentData(request,IpAddressLocation);
             if (!result.Success || result.ResultInt <= 0)
             {
                 _logger.LogInformation("AddComments Failed", result.ErrorMessage);
@@ -146,6 +146,22 @@ namespace Application
             _logger.LogInformation("AddComments SuccessFul");
             return comment.Result;
             throw new Exception("Problem Adding Comments");
+        }
+
+        public async Task<CommentDtoFull> GetCommentById(int commentId)
+        {
+            var result = await _repo.GetCommentById(commentId);
+            if (!result.Success)
+            {
+                _logger.LogInformation("GetCommentById Failed");
+                throw new RestException(HttpStatusCode.NotFound,
+                new { ErrorDescription = "Comment Not Found" });
+            }
+            _logger.LogInformation("GetCommentById SuccessFul");
+            return result.Result;
+
+            throw new Exception("Problem GetListOfEpisodesByCharacter");
+
         }
 
     }

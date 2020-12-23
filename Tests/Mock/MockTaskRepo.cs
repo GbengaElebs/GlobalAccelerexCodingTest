@@ -20,12 +20,12 @@ namespace Tests.Mock
         }
         public MockTaskRepo MockInsertCommentData(SqlModelRes<int> result)
         {
-            Setup(x => x.InsertCommentData(It.IsAny<AddCommentRequest>())).ReturnsAsync(result);
+            Setup(x => x.InsertCommentData(It.IsAny<AddCommentRequest>(),It.IsAny<string>())).ReturnsAsync(result);
             return this;
         }
         public MockTaskRepo VerifyInsertCommentData(Times times)
         {
-            Verify(x => x.InsertCommentData(It.IsAny<AddCommentRequest>()),times);
+            Verify(x => x.InsertCommentData(It.IsAny<AddCommentRequest>(), It.IsAny<string>()),times);
             return this;
         }
         public MockTaskRepo MockValidateEpisodeId(SqlModelRes<EpisodeDb> result)

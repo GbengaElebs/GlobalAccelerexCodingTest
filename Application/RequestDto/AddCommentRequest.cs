@@ -8,8 +8,5 @@ namespace Application.RequestDto
         public string Comment { get; set; }
         [Required(ErrorMessage = "EpisodeId is Required")]
         public int EpisodeId { get; set; }
-        [JsonIgnore]
-        public string IpAddressLocation { get; set; }
-
     }
 }
