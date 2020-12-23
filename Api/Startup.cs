@@ -27,11 +27,15 @@ namespace CodingTest.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            var host = Configuration["DBHOST"]?? "localhost";
+            var port = Configuration["DBPORT"]?? "3306";
+            var password = Configuration["DBPASSWORD"]?? "global@accelerex";
+            
+
             services.AddDbContext<GlobalAccelerexDataContext>(opt =>
             {
                 opt.UseLazyLoadingProxies();
-                opt.UseMySQL(Configuration.GetConnectionString
-                ("DefaultConnection"));
+                opt.UseMySQL($"server={host}; userid=root;pwd={password};port={port};database=GlobalAccelerexdb");
             });
             services.AddScoped<ITask, Task>();
             services.AddScoped<IDbInterfacing, DbInterfacing>();

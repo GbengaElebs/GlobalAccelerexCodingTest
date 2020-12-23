@@ -1,0 +1,83 @@
+[
+	{
+		"FirstName" : "Daniel",
+		"LastName" : "Elegberun",
+		"Status" : "ACTIVE",
+		"StateOfOrigin" : "Kogi",
+		"Gender" : "MALE",
+		"Created" : "2020-12-18 10:34:09",
+		"LocationId" : 1
+	},
+	{
+		"FirstName" : "John",
+		"LastName" : "Doe",
+		"Status" : "UNKNOWN",
+		"StateOfOrigin" : "Abuja",
+		"Gender" : "MALE",
+		"Created" : "2020-12-19 00:35:09",
+		"LocationId" : 2
+	},
+	{
+		"FirstName" : "Elizabeth",
+		"LastName" : "Smith",
+		"Status" : "DEAD",
+		"StateOfOrigin" : "Oyo",
+		"Gender" : "FEMALE",
+		"Created" : "2020-12-19 02:29:09",
+		"LocationId" : 3
+	},
+	{
+		"FirstName" : "Kolobi",
+		"LastName" : "James",
+		"Status" : "DEAD",
+		"StateOfOrigin" : "Zamfara",
+		"Gender" : "MALE",
+		"Created" : "2020-12-19 04:34:09",
+		"LocationId" : 4
+	},
+	{
+		"FirstName" : "Anna",
+		"LastName" : "Smith",
+		"Status" : "ACTIVE",
+		"StateOfOrigin" : "Edo",
+		"Gender" : "FEMALE",
+		"Created" : "2020-12-21 11:34:09",
+		"LocationId" : 5
+	},
+	{
+		"FirstName" : "Ajio",
+		"LastName" : "Dipoi",
+		"Status" : "ACTIVE",
+		"StateOfOrigin" : "AkwaIbom",
+		"Gender" : "FEMALE",
+		"Created" : "2020-12-22 11:34:09",
+		"LocationId" : 3
+	},
+	{
+		"FirstName" : "John",
+		"LastName" : "Thomas",
+		"Status" : "UNKNOWN",
+		"StateOfOrigin" : "Osun",
+		"Gender" : "MALE",
+		"Created" : "2020-12-23 09:23:09",
+		"LocationId" : 4
+	},
+	{
+		"FirstName" : "Roman",
+		"LastName" : "Reigns",
+		"Status" : "DEAD",
+		"StateOfOrigin" : "Plateau",
+		"Gender" : "FEMALE",
+		"Created" : "2020-12-23 17:45:09",
+		"LocationId" : 1
+	},
+	{
+		"FirstName" : "Bob",
+		"LastName" : "Gotham",
+		"Status" : "ACTIVE",
+		"StateOfOrigin" : "Lagos",
+		"Gender" : "MALE",
+		"Created" : "2020-12-23 22:34:09",
+		"LocationId" : 5
+	}
+]

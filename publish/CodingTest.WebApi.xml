@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="M:CodingTest.Api.Controllers.TaskController.GetAllEpisodes">
+            <Summary>
+             /This Endpoint is to GetAllComments 
+            </Summary>
+        </member>
+        <member name="M:CodingTest.Api.Controllers.TaskController.GetAllComments">
+            <Summary>
+            This Endpoint is to GetAllComments 
+            </Summary>
+        </member>
+        <member name="M:CodingTest.Api.Controllers.TaskController.GetCharacters(Application.RequestDto.UrlQuery)">
+            <Summary>
+             This Endpoint is to GetCharacters Can Be Filtered or Sorted Based on the Query String Param
+            </Summary>
+        </member>
+        <member name="M:CodingTest.Api.Controllers.TaskController.GetListOfEpisodesByCharacter(System.Int32)">
+            <Summary>
+             This Endpoint is to GetListOfEpisodesByCharacter
+            </Summary>
+        </member>
+        <member name="M:CodingTest.Api.Controllers.TaskController.GetListOfEpisodesByCharacterFirstName(System.String)">
+            <Summary>
+             This Endpoint is to GetListOfEpisodesByCharacterFirstName
+            </Summary>
+        </member>
+        <member name="M:CodingTest.Api.Controllers.TaskController.AddComments(Application.RequestDto.AddCommentRequest)">
+            <Summary>
+             This Endpoint is to AddComments
+            </Summary>
+        </member>
+    </members>
+</doc>
