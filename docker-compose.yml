@@ -8,13 +8,15 @@ volumes:
 services:
   db:
     image: mysql:latest
+    ports:
+      - "3306:3306"
     volumes:
       - datafiles:/var/lib/mysql
     restart: always
     environment: 
-      - MYSQL_ROOT_PASSWORD=global@accelerex
-      - MYSQL_USER=global@accelerex
-      - MYSQL_PASSWORD=global@accelerex
+      MYSQL_ROOT_PASSWORD: global@accelerex
+      MYSQL_USER: global@accelerex
+      MYSQL_PASSWORD: global@accelerex
   api:
     build:
       context: .

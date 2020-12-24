@@ -35,7 +35,7 @@ namespace CodingTest.Api
             services.AddDbContext<GlobalAccelerexDataContext>(opt =>
             {
                 opt.UseLazyLoadingProxies();
-                opt.UseMySQL($"server={host}; userid={userid};pwd={password};port={port};database=GlobalAccelerexdb");
+                opt.UseMySQL($"server={host}; userid=root;pwd={password};port={port};database=GlobalAccelerexdb");
             });
             services.AddScoped<ITask, Task>();
             services.AddScoped<IDbInterfacing, DbInterfacing>();

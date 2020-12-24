@@ -19,7 +19,12 @@ namespace Application
         {
             _db = db;
              _configuration = configuration;
-            connString = _configuration.GetConnectionString("DefaultConnection");
+             var host = _configuration["DBHOST"]?? "localhost";
+            var port = _configuration["DBPORT"]?? "3306";
+            var password = _configuration["MYSQL_PASSWORD"]?? _configuration.GetConnectionString("MYSQL_PASSWORD");
+            var userid = _configuration["MYSQL_USER"]?? _configuration.GetConnectionString("MYSQL_USER");
+             
+            connString = $"server={host}; userid=root;pwd={password};port={port};database=GlobalAccelerexdb";
         }
         public async Task<SqlModelRes<CharacterDto>> GetCharacterUnSortedAndUnFiltered()
         {
